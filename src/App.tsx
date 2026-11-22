@@ -22,6 +22,7 @@ const projects = [
     result: '≈10 hours saved each week',
     technologies: ['Java', 'SQL', 'Data validation'],
     tone: 'dark',
+    url: null,
   },
   {
     number: '02',
@@ -32,6 +33,7 @@ const projects = [
     result: '3 branch data sources aligned',
     technologies: ['Python', 'Automation', 'Databases'],
     tone: 'purple',
+    url: null,
   },
   {
     number: '03',
@@ -42,19 +44,42 @@ const projects = [
     result: 'From records to a usable workflow',
     technologies: ['Java', 'SQL', 'Relational design'],
     tone: 'blue',
+    url: null,
+  },
+  {
+    number: '04',
+    title: 'Buffalo Hills Web Platform',
+    eyebrow: 'Backend development contribution',
+    description:
+      'Contributed as a backend developer to the Buffalo Hills web platform, supporting the server-side functionality behind the public website.',
+    result: 'Backend contributor',
+    technologies: ['Backend development', 'Application logic', 'Web platform'],
+    tone: 'dark',
+    url: 'https://www.buffalohills.co.bw',
+  },
+  {
+    number: '05',
+    title: 'ChopChop Web Platform',
+    eyebrow: 'Backend development contribution',
+    description:
+      'Contributed as a backend developer to the ChopChop web platform, supporting the application logic and services behind the public website.',
+    result: 'Backend contributor',
+    technologies: ['Backend development', 'Web services', 'Team delivery'],
+    tone: 'purple',
+    url: 'https://chopchop.co.bw',
   },
 ];
 
 const experience = [
   {
-    period: '2025 — Present',
+    period: '2025 - Present',
     role: 'Project Coordinator / IT Officer',
     company: 'E-Choppies · Choppies Botswana',
     description:
       'Coordinating technical delivery across teams while building automation, strengthening data quality and supporting integration testing and release readiness.',
   },
   {
-    period: '2024 — 2025',
+    period: '2024 - 2025',
     role: 'IT Officer',
     company: 'Air Botswana',
     description:
@@ -78,7 +103,7 @@ export default function Home() {
         <a
           href="#top"
           className="font-heading text-sm font-extrabold uppercase tracking-[-0.04em]"
-          aria-label="Bakang Radithobane — home"
+          aria-label="Bakang Radithobane home"
         >
           BR<span className="text-accent-blue">.</span>
         </a>
@@ -98,9 +123,7 @@ export default function Home() {
 
       <section id="top" className="site-shell hero-grid relative pb-16 pt-8 sm:pb-24 sm:pt-14">
         <div className="hero-copy relative z-10 flex flex-col justify-center">
-          <p className="eyebrow mb-7">
-            <span className="status-dot" /> Software developer · IT professional
-          </p>
+          <p className="eyebrow mb-7">Software developer · IT professional</p>
 
           <h1 className="hero-title font-heading font-extrabold uppercase leading-[0.86] tracking-[-0.065em]">
             Systems that
@@ -110,7 +133,7 @@ export default function Home() {
           </h1>
 
           <div className="mt-10 grid max-w-[620px] gap-7 sm:grid-cols-[1fr_auto] sm:items-end">
-            <p className="max-w-[500px] text-lg leading-8 text-muted-foreground">
+            <p className="hero-summary max-w-[500px] text-muted-foreground">
               I&apos;m Bakang Radithobane, a Botswana-based software developer turning
               business friction into dependable, database-driven tools.
             </p>
@@ -156,10 +179,10 @@ export default function Home() {
 
       <section id="work" className="site-shell section-space scroll-mt-6">
         <div className="section-heading-grid">
-          <p className="section-kicker">Selected work · 2022—2026</p>
+          <p className="section-kicker">Selected work · 2022-2026</p>
           <div>
             <h2 className="section-title">Useful software starts with the real problem.</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+            <p className="section-intro mt-6 max-w-2xl text-muted-foreground">
               I build around the operational details: where data breaks, where time is lost,
               and where a clearer system can make the next decision easier.
             </p>
@@ -175,12 +198,22 @@ export default function Home() {
                   <span className="project-index">0{index + 1}</span>
                 </div>
                 <p className="project-eyebrow">{project.eyebrow}</p>
-                <h3 className="mt-4 font-heading text-[clamp(2rem,5vw,4.4rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.055em]">
+                <h3 className="project-title mt-4 font-heading font-extrabold uppercase">
                   {project.title}
                 </h3>
-                <p className="mt-6 max-w-2xl text-base leading-7 opacity-75 sm:text-lg sm:leading-8">
+                <p className="project-description mt-6 max-w-2xl opacity-75">
                   {project.description}
                 </p>
+                {project.url && (
+                  <a
+                    className="project-link mt-5"
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visit {new URL(project.url).hostname}
+                  </a>
+                )}
                 <div className="mt-9 flex flex-wrap gap-2">
                   {project.technologies.map((technology) => (
                     <span key={technology} className="project-badge">
@@ -201,7 +234,7 @@ export default function Home() {
                 </div>
                 <div className="relative z-10">
                   <span className="result-label">OUTCOME</span>
-                  <p className="mt-3 font-heading text-2xl font-extrabold uppercase leading-tight tracking-[-0.04em] sm:text-3xl">
+                  <p className="result-value mt-3 font-heading font-extrabold uppercase">
                     {project.result}
                   </p>
                 </div>
@@ -219,9 +252,9 @@ export default function Home() {
               <h2 className="section-title max-w-5xl">
                 I understand the business process, then make the technology serve it.
               </h2>
-              <p className="mt-8 max-w-3xl text-xl leading-9 text-muted-foreground">
+              <p className="about-summary mt-8 max-w-3xl text-muted-foreground">
                 My background spans software development, enterprise IT and cross-team delivery.
-                That means I can move from a messy operational need to a structured application—and
+                That means I can move from a messy operational need to a structured application and
                 communicate clearly with the people who will rely on it.
               </p>
             </div>
@@ -295,7 +328,7 @@ export default function Home() {
       <section id="contact" className="contact-section scroll-mt-0">
         <div className="site-shell relative z-10 py-20 sm:py-28">
           <p className="section-kicker text-white/65">Have a role, system or difficult workflow?</p>
-          <h2 className="mt-8 max-w-6xl font-heading text-[clamp(3.4rem,9vw,8rem)] font-extrabold uppercase leading-[0.86] tracking-[-0.075em] text-white">
+          <h2 className="contact-title mt-8 max-w-6xl font-heading font-extrabold uppercase text-white">
             Let&apos;s build something that works.
           </h2>
 
