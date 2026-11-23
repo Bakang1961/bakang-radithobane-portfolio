@@ -13,6 +13,12 @@ const playlists = [
     url: 'https://www.deezer.com/en/playlist/14513549663',
     icon: '/deezer.svg',
   },
+  {
+    service: 'TIDAL',
+    title: 'Timeless',
+    url: 'https://tidal.com/playlist/089fdfb9-10a7-4b8a-a6ba-29234ea677e2',
+    icon: '/tidal.svg',
+  },
 ];
 
 export default function AboutPage() {
