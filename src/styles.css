@@ -7,6 +7,7 @@
   font-weight: 100 900;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Geist Mono';
   src: url('/fonts/geist-mono.woff2') format('woff2');
@@ -363,6 +364,103 @@ a:focus-visible {
 .proof-grid p:last-child {
   border-right: 0;
   padding-right: 0;
+}
+
+.about-me-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(22rem, 0.85fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: center;
+}
+
+.about-me-copy h2 {
+  max-width: 52rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 4.5vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.about-me-copy > p:not(.section-label) {
+  max-width: 45rem;
+  margin: 1.5rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.playlist-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-surface);
+  background: var(--surface);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.playlist-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.playlist-heading svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--accent);
+}
+
+.playlist-heading h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.playlist-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.45rem 1rem;
+  min-height: 8rem;
+  align-content: center;
+  border-top: 1px solid var(--line);
+  padding-block: 1.25rem;
+  transition: color 180ms ease, padding-left 180ms ease;
+}
+
+.playlist-link:hover {
+  color: var(--accent);
+  padding-left: 0.35rem;
+}
+
+.playlist-service,
+.playlist-action {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.playlist-service {
+  color: var(--accent);
+}
+
+.playlist-action {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--ink-soft);
+}
+
+.playlist-link strong {
+  max-width: 27rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 .section-heading {
@@ -1039,6 +1137,7 @@ a:focus-visible {
     border-bottom: 0;
   }
 
+  .about-me-section,
   .work-intro,
   .case-study,
   .web-contributions,
@@ -1136,6 +1235,7 @@ a:focus-visible {
     left: 1rem;
   }
 
+  .about-me-copy h2,
   .section-heading h2,
   .work-intro h2,
   .approach-content h2,
@@ -1147,6 +1247,16 @@ a:focus-visible {
 
   .capability-layout {
     grid-template-columns: 1fr;
+  }
+
+  .playlist-link {
+    grid-template-columns: 1fr;
+  }
+
+  .playlist-action {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0.25rem;
   }
 
   .capability-item,
