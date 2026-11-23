@@ -7,13 +7,13 @@ import {
   GitBranch,
   Link2,
   Mail,
-  Music2,
   Network,
   PanelsTopLeft,
   Router,
   Search,
   UsersRound,
 } from 'lucide-react';
+import AboutPage from './AboutPage';
 
 const capabilities = [
   { icon: Search, title: 'Requirements and discovery', description: 'Clarifying business needs, constraints and success criteria before a solution is shaped.' },
@@ -68,6 +68,10 @@ const methods = ['Requirements gathering', 'Process mapping', 'Data validation',
 const technologies = ['C#', '.NET', 'Java', 'Python', 'C++', 'SQL', 'HTML', 'CSS', 'JavaScript', 'AWS', 'Frontend development', 'Backend development'];
 
 export default function Home() {
+  if (window.location.pathname.replace(/\/+$/, '') === '/about') {
+    return <AboutPage />;
+  }
+
   return (
     <main id="top" className="portfolio-shell">
       <a className="skip-link" href="#main-content">Skip to content</a>
@@ -75,7 +79,7 @@ export default function Home() {
       <header className="site-header page-width">
         <a className="brand-mark" href="#top" aria-label="Bakang Radithobane home">Bakang Radithobane</a>
         <nav className="primary-nav" aria-label="Primary navigation">
-          <a href="#about">About</a>
+          <a href="/about">About</a>
           <a href="#work">Work</a>
           <a href="#approach">Approach</a>
           <a href="#experience">Experience</a>
@@ -108,50 +112,6 @@ export default function Home() {
             <p>Business process analysis</p>
             <p>Reliable data and systems</p>
             <p>Testing and delivery coordination</p>
-          </div>
-        </section>
-
-        <section id="about" className="about-me-section page-width section-block" aria-labelledby="about-title">
-          <div className="about-me-copy">
-            <p className="section-label">About me</p>
-            <h2 id="about-title">Curious about how things work, committed to making them work better.</h2>
-            <p>
-              I am Bakang Radithobane, a Botswana-based system analyst and full-stack developer.
-              My work brings together business analysis, software and web development, data,
-              networks and delivery coordination.
-            </p>
-            <p>
-              I enjoy turning operational challenges into practical systems that are clear to use,
-              dependable to run and grounded in what people actually need. Outside technology,
-              music is how I reset, think and discover new perspectives.
-            </p>
-          </div>
-
-          <div className="playlist-panel" aria-labelledby="playlist-title">
-            <div className="playlist-heading">
-              <Music2 aria-hidden="true" />
-              <h3 id="playlist-title">Favourite playlists</h3>
-            </div>
-            <a
-              className="playlist-link"
-              href="https://open.spotify.com/playlist/6wE3u7rIkYYRE35fUvmhgB"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="playlist-service">Spotify</span>
-              <strong>What it feels like To be Saint_Sbakha</strong>
-              <span className="playlist-action">Open playlist</span>
-            </a>
-            <a
-              className="playlist-link"
-              href="https://www.deezer.com/en/playlist/14513549663"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="playlist-service">Deezer</span>
-              <strong>Hit After Hit</strong>
-              <span className="playlist-action">Open playlist</span>
-            </a>
           </div>
         </section>
 
