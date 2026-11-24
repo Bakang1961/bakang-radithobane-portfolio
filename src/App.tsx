@@ -228,7 +228,12 @@ export default function Home() {
             <div className="contact-actions">
               <p>I am open to system analysis, full-stack development, business systems and technical delivery opportunities.</p>
               <a className="contact-email" href="mailto:bakangradithobane@technologist.com"><Mail aria-hidden="true" /> bakangradithobane@technologist.com</a>
-              <a className="contact-linkedin" href="https://www.linkedin.com/in/bakang-radithobane-3073711a8/" target="_blank" rel="noreferrer"><Link2 aria-hidden="true" /> LinkedIn</a>
+              <div className="contact-socials">
+                <a className="contact-linkedin" href="https://www.linkedin.com/in/bakang-radithobane-3073711a8/" target="_blank" rel="noreferrer"><Link2 aria-hidden="true" /> LinkedIn</a>
+                <a className="contact-whatsapp" href="https://wa.me/26773371512" target="_blank" rel="noreferrer" aria-label="Chat with Bakang Radithobane on WhatsApp at +267 73 371 512">
+                  <img src="/whatsapp.svg" alt="" aria-hidden="true" /> +267 73 371 512
+                </a>
+              </div>
             </div>
           </div>
         </section>

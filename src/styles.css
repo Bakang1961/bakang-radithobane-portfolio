@@ -40,6 +40,9 @@
   --dark: #101827;
   --dark-soft: #182337;
   --on-dark: #f5f7fb;
+  --contact-bg: #173d78;
+  --contact-text: #f7faff;
+  --contact-muted: #d9e6f7;
   --font-body: var(--font-geist-sans), Arial, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
   --font-display: var(--font-syne), var(--font-body);
@@ -62,6 +65,9 @@
     --dark: #080f1b;
     --dark-soft: #101d30;
     --on-dark: #eef3f9;
+    --contact-bg: #173d78;
+    --contact-text: #f7faff;
+    --contact-muted: #d9e6f7;
     --shadow-soft: 0 24px 70px rgb(0 0 0 / 28%);
   }
 }
@@ -1123,8 +1129,8 @@ a:focus-visible {
 }
 
 .contact-section {
-  background: var(--accent-strong);
-  color: #f4f7fb;
+  background: var(--contact-bg);
+  color: var(--contact-text);
   padding-block: clamp(5.5rem, 9vw, 9rem);
 }
 
@@ -1136,24 +1142,25 @@ a:focus-visible {
 }
 
 .contact-layout .section-label {
-  color: rgb(244 247 251 / 70%);
+  color: var(--contact-muted);
 }
 
 .contact-actions > p {
   max-width: 33rem;
   margin: 0 0 2rem;
-  color: rgb(244 247 251 / 76%);
+  color: var(--contact-muted);
   font-size: 1.05rem;
 }
 
 .contact-email,
-.contact-linkedin {
+.contact-linkedin,
+.contact-whatsapp {
   display: flex;
   width: fit-content;
   min-height: 48px;
   align-items: center;
   gap: 0.65rem;
-  color: #f4f7fb;
+  color: var(--contact-text);
 }
 
 .contact-email {
@@ -1165,8 +1172,15 @@ a:focus-visible {
   overflow-wrap: anywhere;
 }
 
-.contact-linkedin {
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
   margin-top: 0.75rem;
+}
+
+.contact-linkedin,
+.contact-whatsapp {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
@@ -1175,7 +1189,8 @@ a:focus-visible {
 }
 
 .contact-email svg,
-.contact-linkedin svg {
+.contact-linkedin svg,
+.contact-whatsapp img {
   width: 1.15rem;
   height: 1.15rem;
   flex: 0 0 auto;
