@@ -77,7 +77,8 @@ export default function Home() {
       <a className="skip-link" href="#main-content">Skip to content</a>
 
       <header className="site-header page-width">
-        <a className="brand-mark" href="#top" aria-label="Bakang Radithobane home">Bakang Radithobane</a>
+        <p className="nav-status"><span>System analyst</span><strong>Full-stack developer</strong></p>
+        <a className="brand-mark" href="#top" aria-label="Bakang Radithobane home">Bakang</a>
         <nav className="primary-nav" aria-label="Primary navigation">
           <a href="/about">About</a>
           <a href="#work">Work</a>
@@ -89,20 +90,32 @@ export default function Home() {
 
       <div id="main-content">
         <section className="hero page-width" aria-labelledby="hero-title">
+          <h1 id="hero-title" className="hero-name">
+            <span>Bakang</span>
+            <span>Radithobane</span>
+          </h1>
+
+          <div className="hero-card" aria-label="Professional focus">
+            <p>What I bring</p>
+            <strong>Analysis, build and delivery.</strong>
+            <ul>
+              <li>Business systems</li>
+              <li>Full-stack software</li>
+              <li>Networks and VPNs</li>
+            </ul>
+          </div>
+
+          <div className="hero-portrait">
+            <img src="/bakang-cutout.png" alt="Bakang Radithobane wearing a navy suit" width="1024" height="1536" />
+          </div>
+
           <div className="hero-copy">
-            <p className="hero-eyebrow">System analyst, full-stack software and web developer</p>
-            <h1 id="hero-title">Complex operations. Clear systems people trust.</h1>
-            <p className="hero-lead">I analyse workflows, build full-stack solutions and support the networks that keep digital services dependable.</p>
+            <p className="hero-eyebrow">System analyst / Software developer / Web developer</p>
+            <h2>Complex operations. Clear systems people trust.</h2>
+            <p className="hero-lead">I analyse workflows, build full-stack solutions and keep the supporting technology dependable.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">View case studies <ArrowDown aria-hidden="true" /></a>
               <a className="button button-secondary" href="#contact">Contact me</a>
-            </div>
-          </div>
-          <div className="hero-portrait">
-            <img src="/bakang-radithobane.png" alt="Bakang Radithobane wearing a navy suit" width="1024" height="1536" />
-            <div className="portrait-caption">
-              <span>Based in Botswana</span>
-              <strong>Business understanding, technical delivery</strong>
             </div>
           </div>
         </section>

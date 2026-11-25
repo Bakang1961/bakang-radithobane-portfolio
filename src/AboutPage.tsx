@@ -27,7 +27,8 @@ export default function AboutPage() {
       <a className="skip-link" href="#about-content">Skip to content</a>
 
       <header className="site-header page-width">
-        <a className="brand-mark" href="/" aria-label="Bakang Radithobane home">Bakang Radithobane</a>
+        <p className="nav-status"><span>System analyst</span><strong>Full-stack developer</strong></p>
+        <a className="brand-mark" href="/" aria-label="Bakang Radithobane home">Bakang</a>
         <nav className="primary-nav" aria-label="Primary navigation">
           <a aria-current="page" href="/about">About</a>
           <a href="/#work">Work</a>
@@ -49,7 +50,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="about-portrait">
-            <img src="/bakang-radithobane.png" alt="Bakang Radithobane wearing a navy suit" width="1024" height="1536" />
+            <img src="/bakang-cutout.png" alt="Bakang Radithobane wearing a navy suit" width="1024" height="1536" />
           </div>
         </section>
 
