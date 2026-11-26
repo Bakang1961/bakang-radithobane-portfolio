@@ -1,32 +1,15 @@
 import {
   ArrowDown,
   ArrowUpRight,
+  BookOpen,
   CheckCircle2,
-  Database,
-  FileCheck2,
-  GitBranch,
   Link2,
   Mail,
-  Network,
-  PanelsTopLeft,
-  Router,
-  Search,
-  UsersRound,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import AboutPage from './AboutPage';
 import TechNetworkGraphic from './TechNetworkGraphic';
-
-const capabilities = [
-  { icon: Search, title: 'Requirements and discovery', description: 'Clarifying business needs, constraints and success criteria before a solution is shaped.' },
-  { icon: GitBranch, title: 'Process analysis', description: 'Mapping current workflows, identifying friction and defining a clearer future-state process.' },
-  { icon: Database, title: 'Data and system design', description: 'Structuring information, validation rules and application logic around dependable operations.' },
-  { icon: FileCheck2, title: 'Testing and assurance', description: 'Supporting integration testing, UAT, issue resolution and release readiness across teams.' },
-  { icon: UsersRound, title: 'Stakeholder alignment', description: 'Translating between business users and technical teams so decisions stay clear and actionable.' },
-  { icon: Network, title: 'Delivery coordination', description: 'Keeping requirements, dependencies, testing and implementation work connected through delivery.' },
-  { icon: PanelsTopLeft, title: 'Full-stack development', description: 'Building web and software solutions across interface, application logic, services and data.' },
-  { icon: Router, title: 'Network and VPN operations', description: 'Managing VPN access, diagnosing connectivity problems and supporting secure network configuration.' },
-];
+import { techNotes } from './content/techNotes';
 
 const caseStudies = [
   {
@@ -175,22 +158,56 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="capabilities page-width section-block" aria-labelledby="capabilities-title">
-          <div className="section-heading">
-            <h2 id="capabilities-title">Analysis that connects the problem to delivery.</h2>
-            <p>I work across the full path from understanding an operational need to validating the system that addresses it.</p>
+        <section className="notes-section page-width section-block" aria-labelledby="tech-notes-title">
+          <div className="notes-intro">
+            <div>
+              <p className="section-label">Tech notes</p>
+              <h2 id="tech-notes-title">Findings worth carrying into the next build.</h2>
+            </div>
+            <p>Short, practical stories from systems analysis, software delivery and network operations. Written for people who prefer useful detail over recycled trends.</p>
           </div>
-          <div className="capability-layout">
-            {capabilities.map((capability) => {
-              const Icon = capability.icon;
-              return (
-                <article key={capability.title} className="capability-item">
-                  <Icon aria-hidden="true" />
-                  <h3>{capability.title}</h3>
-                  <p>{capability.description}</p>
-                </article>
-              );
-            })}
+
+          <div className="notes-layout">
+            {techNotes.map((note) => (
+              <article key={note.slug} className={`note-card${note.featured ? ' note-card-featured' : ''}`}>
+                <div className="note-cover">
+                  <img src={note.image} alt={note.imageAlt} width="1800" height="1200" loading="lazy" />
+                  <span className="note-status">{note.status}</span>
+                  <a className="photo-credit" href={note.photoUrl} target="_blank" rel="noreferrer">Photo: {note.photoCredit}</a>
+                </div>
+                <div className="note-body">
+                  <div className="note-meta"><span>{note.topic}</span><span>{note.readTime}</span></div>
+                  <h3>{note.title}</h3>
+                  <p>{note.excerpt}</p>
+                  <div className="note-footer">
+                    <span>{note.issue}</span>
+                    <span className="note-mark" aria-hidden="true"><BookOpen /></span>
+                  </div>
+                </div>
+              </article>
+            ))}
+
+            <aside className="newsletter-card" aria-labelledby="newsletter-title">
+              <div className="newsletter-heading">
+                <p className="section-label">The Bakang Brief</p>
+                <span>Issue 00</span>
+              </div>
+              <div>
+                <h3 id="newsletter-title">Useful systems notes, not inbox noise.</h3>
+                <p>A considered monthly email about analysis, building software and keeping technology dependable.</p>
+              </div>
+              <form className="newsletter-form" aria-describedby="newsletter-status">
+                <label htmlFor="newsletter-email">Email address</label>
+                <div>
+                  <input id="newsletter-email" type="email" placeholder="you@example.com" disabled />
+                  <button type="button" disabled>Subscriptions open soon</button>
+                </div>
+                <p id="newsletter-status">Sign-up opens when the Cloudflare publishing setup is connected. No email is being collected yet.</p>
+              </form>
+              <ul aria-label="Newsletter topics">
+                <li>Systems analysis</li><li>Full-stack delivery</li><li>Networks and VPNs</li>
+              </ul>
+            </aside>
           </div>
         </section>
 
