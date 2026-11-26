@@ -235,6 +235,33 @@ body::before {
 .contribution-list article { border: 1px solid var(--ink); background: var(--canvas); }
 .approach-visual, .about-portrait { border-radius: var(--radius-surface); background: transparent; box-shadow: 12px 12px 0 var(--ink); }
 .approach-visual img { filter: saturate(0.7) sepia(0.08) contrast(1.04); }
+.approach-visual { min-height: auto; aspect-ratio: 760 / 620; }
+.tech-network-graphic { position: relative; width: 100%; height: 100%; overflow: hidden; background: #d5e5ef; color: var(--ink); }
+.tech-network-graphic svg { display: block; width: 100%; height: 100%; }
+.network-graphic-header { position: absolute; z-index: 4; top: clamp(0.85rem, 2vw, 1.5rem); right: clamp(0.85rem, 2vw, 1.5rem); left: clamp(0.85rem, 2vw, 1.5rem); display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--font-mono); font-size: clamp(0.62rem, 0.9vw, 0.76rem); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.network-graphic-header strong { display: inline-flex; align-items: center; gap: 0.5rem; }
+.network-graphic-header i { width: 0.65rem; height: 0.65rem; border-radius: 50%; background: #4e9b67; box-shadow: 0 0 0 0 rgb(78 155 103 / 45%); animation: network-pulse 2s ease-out infinite; }
+.screen-kicker, .screen-chip, .router-label, .stat-label, .stat-value { font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.08em; }
+.screen-kicker { fill: #f3ede4; font-size: 14px; }
+.screen-chip { fill: #181411; font-size: 10px; }
+.router-label { fill: #181411; font-size: 10px; }
+.stat-label { fill: #655d55; font-size: 11px; }
+.stat-value { fill: #181411; font-size: 15px; }
+.stat-label-light { fill: #b8aa9c; }
+.stat-value-light { fill: #f3ede4; }
+.laptop-lid { transform-box: fill-box; transform-origin: center bottom; animation: laptop-open 1.3s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.router-device { transform-box: fill-box; transform-origin: center; animation: router-arrive 900ms 700ms cubic-bezier(0.16, 1, 0.3, 1) both, router-float 4s 1.6s ease-in-out infinite; }
+.network-flow { animation: network-flow 1.2s linear infinite; }
+.wifi-signal { transform-box: fill-box; transform-origin: center bottom; animation: wifi-pulse 1.8s 1.1s ease-in-out infinite; }
+.code-line { transform-box: fill-box; transform-origin: left center; animation: code-load 2.8s ease-in-out infinite; }
+.code-line-b { animation-delay: 160ms; }
+.code-line-c { animation-delay: 320ms; }
+.code-line-d { animation-delay: 480ms; }
+.router-light { animation: router-light 1.6s ease-in-out infinite; }
+.router-light-two { animation-delay: 220ms; }
+.router-light-three { animation-delay: 440ms; }
+.network-stat { transform-box: fill-box; transform-origin: center; animation: network-stat-in 700ms 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.network-stat-right { animation-delay: 1.2s; }
 .toolkit-heading { color: var(--ink); }
 .toolkit-heading > p, .toolkit-groups li { color: var(--ink-soft); }
 .toolkit-groups > div { background: var(--canvas); }
@@ -353,6 +380,44 @@ body::before {
 @keyframes intro-role {
   0%, 12% { opacity: 0; transform: translateY(1.25rem); }
   25%, 100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes laptop-open {
+  from { opacity: 0; transform: perspective(700px) rotateX(-72deg) translateY(14%); }
+  to { opacity: 1; transform: perspective(700px) rotateX(0) translateY(0); }
+}
+@keyframes router-arrive {
+  from { opacity: 0; transform: translateX(28px) scale(0.9); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes router-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+@keyframes network-flow { to { stroke-dashoffset: -40; } }
+@keyframes wifi-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes code-load {
+  0%, 100% { opacity: 0.48; transform: scaleX(0.7); }
+  45%, 70% { opacity: 1; transform: scaleX(1); }
+}
+@keyframes router-light {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+@keyframes network-stat-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes network-pulse {
+  0% { box-shadow: 0 0 0 0 rgb(78 155 103 / 45%); }
+  70%, 100% { box-shadow: 0 0 0 0.55rem rgb(78 155 103 / 0%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-network-graphic *, .tech-network-graphic *::before, .tech-network-graphic *::after { animation: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

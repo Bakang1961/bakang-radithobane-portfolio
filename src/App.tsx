@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import AboutPage from './AboutPage';
+import TechNetworkGraphic from './TechNetworkGraphic';
 
 const capabilities = [
   { icon: Search, title: 'Requirements and discovery', description: 'Clarifying business needs, constraints and success criteria before a solution is shaped.' },
@@ -236,7 +237,7 @@ export default function Home() {
 
         <section id="approach" className="approach-section page-width section-block" aria-labelledby="approach-title">
           <div className="approach-visual">
-            <img src="/systems-analysis-workspace.png" alt="Process maps, data structures and a validation checklist arranged on an analyst's workspace" width="1536" height="1024" />
+            <TechNetworkGraphic />
           </div>
           <div className="approach-content">
             <h2 id="approach-title">A practical way through ambiguity.</h2>
