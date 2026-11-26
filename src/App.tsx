@@ -88,8 +88,6 @@ function CinematicIntro({ onComplete }: { onComplete: () => void }) {
     return () => window.clearTimeout(timer);
   }, [isLeaving, onComplete]);
 
-  const skipIntro = () => setIsLeaving(true);
-
   return (
     <section className={`cinematic-intro${isLeaving ? ' is-leaving' : ''}`} aria-label="Introduction">
       <div className="intro-wash" aria-hidden="true" />
@@ -104,19 +102,14 @@ function CinematicIntro({ onComplete }: { onComplete: () => void }) {
         <strong>Ideas become dependable systems.</strong>
       </div>
       <p className="intro-counter" aria-hidden="true">BR / 2026</p>
-      <button className="intro-skip" type="button" onClick={skipIntro}>Skip intro</button>
     </section>
   );
 }
 
 export default function Home() {
-  const [showIntro, setShowIntro] = useState(() => (
-    window.location.pathname.replace(/\/+$/, '') !== '/about'
-      && window.sessionStorage.getItem('bakang-intro-seen') !== 'true'
-  ));
+  const [showIntro, setShowIntro] = useState(true);
 
   const completeIntro = () => {
-    window.sessionStorage.setItem('bakang-intro-seen', 'true');
     setShowIntro(false);
   };
 
