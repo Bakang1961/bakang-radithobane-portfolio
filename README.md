@@ -18,6 +18,16 @@ npm run build
 npm run preview
 ```
 
+## Update Tech Notes
+
+The Notes link opens `/notes`. Its cards are maintained in [`src/content/techNotes.ts`](src/content/techNotes.ts).
+
+1. Add or edit a card in `techNotes`. Use a unique `slug` and keep `featured: true` on only one card.
+2. Put the cover image in `public/` and set `image` to its root-relative path, such as `/tech-note-example.jpg`. Include descriptive `imageAlt` text and credit the source in `photoCredit` and `photoUrl`.
+3. Run `npm run build`, then `npm run preview` and open `/notes` to check the card and cover image.
+
+The page currently displays story summaries. Newsletter sign-up is disabled and does not collect email addresses.
+
 ## Upload to GitHub
 
 Create an empty repository on GitHub, then run these commands in this folder. Replace the example URL with your repository URL.
