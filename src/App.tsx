@@ -13,6 +13,7 @@ import {
   Search,
   UsersRound,
 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import AboutPage from './AboutPage';
 
 const capabilities = [
@@ -67,13 +68,65 @@ const experience = [
 const methods = ['Requirements gathering', 'Process mapping', 'Data validation', 'Relational modelling', 'Integration testing', 'User acceptance testing', 'Technical documentation', 'Release readiness', 'VPN management', 'Network diagnosis', 'Network configuration'];
 const technologies = ['C#', '.NET', 'Java', 'Python', 'C++', 'SQL', 'HTML', 'CSS', 'JavaScript', 'AWS', 'Frontend development', 'Backend development'];
 
+function CinematicIntro({ onComplete }: { onComplete: () => void }) {
+  const [isLeaving, setIsLeaving] = useState(false);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      onComplete();
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => setIsLeaving(true), 5600);
+    return () => window.clearTimeout(timer);
+  }, [onComplete]);
+
+  useEffect(() => {
+    if (!isLeaving) return undefined;
+    const timer = window.setTimeout(onComplete, 700);
+    return () => window.clearTimeout(timer);
+  }, [isLeaving, onComplete]);
+
+  const skipIntro = () => setIsLeaving(true);
+
+  return (
+    <section className={`cinematic-intro${isLeaving ? ' is-leaving' : ''}`} aria-label="Introduction">
+      <div className="intro-wash" aria-hidden="true" />
+      <p className="intro-kicker">Systems · Software · Web</p>
+      <p className="intro-title intro-title-first" aria-hidden="true">Bakang</p>
+      <p className="intro-title intro-title-last" aria-hidden="true">Radithobane</p>
+      <div className="intro-portrait" aria-hidden="true">
+        <img src="/bakang-cutout.png" alt="" width="1024" height="1536" />
+      </div>
+      <div className="intro-role">
+        <span>System analyst</span>
+        <strong>Ideas become dependable systems.</strong>
+      </div>
+      <p className="intro-counter" aria-hidden="true">BR / 2026</p>
+      <button className="intro-skip" type="button" onClick={skipIntro}>Skip intro</button>
+    </section>
+  );
+}
+
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(() => (
+    window.location.pathname.replace(/\/+$/, '') !== '/about'
+      && window.sessionStorage.getItem('bakang-intro-seen') !== 'true'
+  ));
+
+  const completeIntro = () => {
+    window.sessionStorage.setItem('bakang-intro-seen', 'true');
+    setShowIntro(false);
+  };
+
   if (window.location.pathname.replace(/\/+$/, '') === '/about') {
     return <AboutPage />;
   }
 
   return (
     <main id="top" className="portfolio-shell">
+      {showIntro && <CinematicIntro onComplete={completeIntro} />}
       <a className="skip-link" href="#main-content">Skip to content</a>
 
       <header className="site-header page-width">
