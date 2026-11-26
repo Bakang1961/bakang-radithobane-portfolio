@@ -1,15 +1,13 @@
 import {
   ArrowDown,
   ArrowUpRight,
-  BookOpen,
   CheckCircle2,
   Link2,
   Mail,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import AboutPage from './AboutPage';
-import TechNetworkGraphic from './TechNetworkGraphic';
-import { techNotes } from './content/techNotes';
+import TechNotesPage from './TechNotesPage';
 
 const caseStudies = [
   {
@@ -97,7 +95,13 @@ export default function Home() {
     setShowIntro(false);
   };
 
-  if (window.location.pathname.replace(/\/+$/, '') === '/about') {
+  const currentPath = window.location.pathname.replace(/\/+$/, '');
+
+  if (currentPath === '/notes') {
+    return <TechNotesPage />;
+  }
+
+  if (currentPath === '/about') {
     return <AboutPage />;
   }
 
@@ -111,6 +115,7 @@ export default function Home() {
         <a className="brand-mark" href="#top" aria-label="Bakang Radithobane home">Bakang</a>
         <nav className="primary-nav" aria-label="Primary navigation">
           <a href="/about">About</a>
+          <a href="/notes">Notes</a>
           <a href="#work">Work</a>
           <a href="#approach">Approach</a>
           <a href="#experience">Experience</a>
@@ -158,59 +163,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="notes-section page-width section-block" aria-labelledby="tech-notes-title">
-          <div className="notes-intro">
-            <div>
-              <p className="section-label">Tech notes</p>
-              <h2 id="tech-notes-title">Findings worth carrying into the next build.</h2>
-            </div>
-            <p>Short, practical stories from systems analysis, software delivery and network operations. Written for people who prefer useful detail over recycled trends.</p>
-          </div>
-
-          <div className="notes-layout">
-            {techNotes.map((note) => (
-              <article key={note.slug} className={`note-card${note.featured ? ' note-card-featured' : ''}`}>
-                <div className="note-cover">
-                  <img src={note.image} alt={note.imageAlt} width="1800" height="1200" loading="lazy" />
-                  <span className="note-status">{note.status}</span>
-                  <a className="photo-credit" href={note.photoUrl} target="_blank" rel="noreferrer">Photo: {note.photoCredit}</a>
-                </div>
-                <div className="note-body">
-                  <div className="note-meta"><span>{note.topic}</span><span>{note.readTime}</span></div>
-                  <h3>{note.title}</h3>
-                  <p>{note.excerpt}</p>
-                  <div className="note-footer">
-                    <span>{note.issue}</span>
-                    <span className="note-mark" aria-hidden="true"><BookOpen /></span>
-                  </div>
-                </div>
-              </article>
-            ))}
-
-            <aside className="newsletter-card" aria-labelledby="newsletter-title">
-              <div className="newsletter-heading">
-                <p className="section-label">The Bakang Brief</p>
-                <span>Issue 00</span>
-              </div>
-              <div>
-                <h3 id="newsletter-title">Useful systems notes, not inbox noise.</h3>
-                <p>A considered monthly email about analysis, building software and keeping technology dependable.</p>
-              </div>
-              <form className="newsletter-form" aria-describedby="newsletter-status">
-                <label htmlFor="newsletter-email">Email address</label>
-                <div>
-                  <input id="newsletter-email" type="email" placeholder="you@example.com" disabled />
-                  <button type="button" disabled>Subscriptions open soon</button>
-                </div>
-                <p id="newsletter-status">Sign-up opens when the Cloudflare publishing setup is connected. No email is being collected yet.</p>
-              </form>
-              <ul aria-label="Newsletter topics">
-                <li>Systems analysis</li><li>Full-stack delivery</li><li>Networks and VPNs</li>
-              </ul>
-            </aside>
-          </div>
-        </section>
-
         <section id="work" className="work-section section-block" aria-labelledby="work-title">
           <div className="page-width">
             <div className="work-intro">
@@ -254,7 +206,7 @@ export default function Home() {
 
         <section id="approach" className="approach-section page-width section-block" aria-labelledby="approach-title">
           <div className="approach-visual">
-            <TechNetworkGraphic />
+            <img src="/systems-analysis-workspace.png" alt="Systems analysis documents and a process checklist on a workspace" width="760" height="620" loading="lazy" />
           </div>
           <div className="approach-content">
             <h2 id="approach-title">A practical way through ambiguity.</h2>

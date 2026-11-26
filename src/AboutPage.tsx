@@ -31,6 +31,7 @@ export default function AboutPage() {
         <a className="brand-mark" href="/" aria-label="Bakang Radithobane home">Bakang</a>
         <nav className="primary-nav" aria-label="Primary navigation">
           <a aria-current="page" href="/about">About</a>
+          <a href="/notes">Notes</a>
           <a href="/#work">Work</a>
           <a href="/#approach">Approach</a>
           <a href="/#experience">Experience</a>
