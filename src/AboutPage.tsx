@@ -33,7 +33,6 @@ export default function AboutPage() {
           <a aria-current="page" href="/about">About</a>
           <a href="/notes">Notes</a>
           <a href="/#work">Work</a>
-          <a href="/#approach">Approach</a>
           <a href="/#experience">Experience</a>
           <a className="nav-contact" href="/#contact">Contact me</a>
         </nav>

@@ -13,7 +13,6 @@ export default function TechNotesPage() {
           <a href="/about">About</a>
           <a aria-current="page" href="/notes">Notes</a>
           <a href="/#work">Work</a>
-          <a href="/#approach">Approach</a>
           <a href="/#experience">Experience</a>
           <a className="nav-contact" href="/#contact">Contact me</a>
         </nav>

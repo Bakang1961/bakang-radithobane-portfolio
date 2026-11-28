@@ -117,7 +117,6 @@ export default function Home() {
           <a href="/about">About</a>
           <a href="/notes">Notes</a>
           <a href="#work">Work</a>
-          <a href="#approach">Approach</a>
           <a href="#experience">Experience</a>
           <a className="nav-contact" href="#contact">Contact me</a>
         </nav>
@@ -201,22 +200,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id="approach" className="approach-section page-width section-block" aria-labelledby="approach-title">
-          <div className="approach-visual">
-            <img src="/systems-analysis-workspace.png" alt="Systems analysis documents and a process checklist on a workspace" width="760" height="620" loading="lazy" />
-          </div>
-          <div className="approach-content">
-            <h2 id="approach-title">A practical way through ambiguity.</h2>
-            <p className="approach-intro">Good systems begin with a shared understanding of the work, the data and the people affected by change.</p>
-            <ol className="approach-list">
-              <li><strong>Discover</strong><span>Understand the users, workflow, constraints and business objective.</span></li>
-              <li><strong>Define</strong><span>Turn findings into clear requirements, rules and a workable system model.</span></li>
-              <li><strong>Validate</strong><span>Test assumptions, data and integrations with the people who rely on them.</span></li>
-              <li><strong>Deliver</strong><span>Coordinate implementation, resolve gaps and support a controlled release.</span></li>
-            </ol>
           </div>
         </section>
 

@@ -628,7 +628,6 @@ a:focus-visible {
 
 .section-heading h2,
 .work-intro h2,
-.approach-content h2,
 .toolkit-heading h2,
 .contact-layout h2 {
   margin: 0;
@@ -905,65 +904,6 @@ a:focus-visible {
 .contribution-list a svg {
   width: 1rem;
   height: 1rem;
-}
-
-.approach-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.95fr);
-  align-items: stretch;
-  gap: clamp(3rem, 7vw, 7rem);
-}
-
-.approach-visual {
-  min-height: 42rem;
-  overflow: hidden;
-  border-radius: var(--radius-surface);
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
-}
-
-.approach-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.approach-content {
-  align-self: center;
-}
-
-.approach-intro {
-  max-width: 38rem;
-  margin: 1.5rem 0 0;
-  color: var(--ink-soft);
-  font-size: 1.05rem;
-}
-
-.approach-list {
-  display: grid;
-  gap: 0;
-  margin: 2.5rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.approach-list li {
-  display: grid;
-  grid-template-columns: 7rem 1fr;
-  gap: 1.5rem;
-  border-bottom: 1px solid var(--line);
-  padding-block: 1.25rem;
-}
-
-.approach-list strong {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: -0.025em;
-}
-
-.approach-list span {
-  color: var(--ink-soft);
 }
 
 .toolkit-section {
@@ -1243,14 +1183,6 @@ a:focus-visible {
     grid-column: span 6;
   }
 
-  .approach-section {
-    grid-template-columns: 1fr;
-  }
-
-  .approach-visual {
-    min-height: 34rem;
-  }
-
   .toolkit-layout {
     grid-template-columns: 1fr;
   }
@@ -1438,7 +1370,6 @@ a:focus-visible {
   .music-heading h2,
   .section-heading h2,
   .work-intro h2,
-  .approach-content h2,
   .toolkit-heading h2,
   .contact-layout h2 {
     font-size: clamp(2.1rem, 10vw, 2.85rem);
@@ -1492,15 +1423,6 @@ a:focus-visible {
   .toolkit-groups,
   .toolkit-groups ul {
     grid-template-columns: 1fr;
-  }
-
-  .approach-visual {
-    min-height: 24rem;
-  }
-
-  .approach-list li {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
   }
 
   .credentials {
