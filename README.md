@@ -4,10 +4,10 @@ A static React portfolio built with Vite and Tailwind CSS. It has no server, dat
 
 ## Run locally
 
-Requirements: Node.js 22 or newer.
+Requirements: Node.js 22.13.0 or newer.
 
 ```powershell
-npm install
+npm ci
 npm run dev
 ```
 
